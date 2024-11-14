@@ -151,4 +151,6 @@ function updateData() {
   btnAdd.classList.remove("d-none");
   btnUpdata.classList.add("d-none");
 
+  clearForm();
+
 }
