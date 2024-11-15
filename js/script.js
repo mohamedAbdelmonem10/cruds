@@ -119,19 +119,22 @@ function searchName() {
 }
 // Update
 function setUpdateInfo(index) {
-  
   currentIndex = index;
-
 
   productNameInput.value = productList[index].name;
   productPriceInput.value = productList[index].price;
   productCategoryInput.value = productList[index].category;
   productDescriptionInput.value = productList[index].description;
-  
+
+  scroll({
+    top: 0,
+    behavior: "smooth",
+  });
+
   btnAdd.classList.add("d-none");
   btnUpdata.classList.remove("d-none");
 }
-// Update 
+// Update
 function updateData() {
   var product = {
     name: productNameInput.value,
@@ -143,7 +146,7 @@ function updateData() {
       : "images/p-4.jpg",
   };
 
-  productList.splice(currentIndex,1,product)
+  productList.splice(currentIndex, 1, product);
   displayData();
 
   localStorage.setItem("productContainer", JSON.stringify(productList));
@@ -152,5 +155,4 @@ function updateData() {
   btnUpdata.classList.add("d-none");
 
   clearForm();
-
 }
